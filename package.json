@@ -1,0 +1,13 @@
+{
+  "name": "acca-slides-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Keyless GitHub Action that generates branded ACCA monthly report decks into the Shared Drive.",
+  "type": "module",
+  "scripts": {
+    "generate": "node generate.mjs"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}
