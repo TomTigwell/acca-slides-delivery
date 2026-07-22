@@ -13,4 +13,4 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm install
-      - run: node generate.mjs
+      - run: node inspect.mjs # TEMP: read-only text dump to ground the July replacements; swap back to generate.mjs after
