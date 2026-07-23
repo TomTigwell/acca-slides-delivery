@@ -307,9 +307,6 @@ async function generate(deckKey, masterId, title, edits = []) {
   return data.id;
 }
 
-// TEMP: only regenerating Product this run (content update from the July
-// brief) — B2B and Brand are unaffected and already current. Restore both
-// calls below once confirmed, ready for the next full monthly run.
-// await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
+await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
 await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026', EDITS.product);
-// await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
+await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);

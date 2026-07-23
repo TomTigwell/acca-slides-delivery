@@ -4,12 +4,8 @@ import { google } from 'googleapis';
 // session (numbers-only pass with no cover, then a cover pass with a text
 // overflow bug). Trashed, not permanently deleted, so still recoverable.
 const SUPERSEDED = [
-  '12S7eCclUfEcvWQ43uP83CIhTKaeydFU6Ii0b0KApW7g', // B2B v1 — numbers only, screenshot cover
-  '12FUbbVjaOvi-zhTdvAxikvOUVEUcqj_hxxBeWZT9h_0', // Product v1
-  '1cTchIJuhdiOezeMxl3kxbTdHyXf9MOvSqcqVZJ_dtVo', // Brand v1
-  '1z5YkY84ZCgXjRyOXys74g0gC8epMVZ4FGY4l59PPV7Q', // B2B v2 — cover overflow bug
-  '1B_N_N1bOnUY8Jqcxc_deu7D03Lfw0NphIu35bZVxJAA', // Product v2 — cover overflow bug
-  '1NLPo_BBVQjlVfZsCpsD6l-VBzDxMD5WIOKLEzOctiWw', // Brand v2 — cover overflow bug
+  '1TSnYj5QyLo3x4RKgegkunhsxB3GyLg9apSAqJ6ROyqc', // Product — July-brief pass, had 2 text overflow collisions
+  '16CVIP62Q96-YdSy6P4eW0b4vAPnOFxpnoj7oSnlvIPw', // Product — pre-July-brief (numbers-only) version
 ];
 
 const auth = new google.auth.GoogleAuth({
