@@ -56,7 +56,7 @@ const EDITS = {
     { objectId: 'g3f483bfcec4_0_42', text: 'Apple-UI format holding across Data Analytics and Cybersecurity.' },
     { objectId: 'g3f483bfcec4_0_43', text: 'Both certs continue on Apple-UI creative across LinkedIn and Meta B2C, sustaining Q1’s CTR performance into July.\n' },
     { objectId: 'g3f483bfcec4_0_46', text: 'CERT PFM groundwork underway.' },
-    { objectId: 'g3f483bfcec4_0_47', text: 'Rashid confirmed CERT PFM is a B2B proposition launching later this year. Budget split will weight B2B LinkedIn spend above Meta B2C once it activates.\n' },
+    { objectId: 'g3f483bfcec4_0_47', text: 'Rashid confirmed CERT PFM is B2B-weighted, launching later this year — budget split favors LinkedIn over Meta B2C.\n' },
     { objectId: 'g3f483bfcec4_0_57', text: 'Full-funnel spend timing is now understood at senior level.' },
     { objectId: 'g3f483bfcec4_0_58', text: 'Trevor and Peter confirmed on the July 06 call that awareness spend doesn’t convert in the same month and accepted the lagged attribution model — clearing the way to report spend, impressions, and checkouts without re-justifying the funnel shape each month.\n' },
     { objectId: 'g3f483bfcec4_0_61', text: 'Checkout tracking remains the highest-value open action.' },
@@ -90,7 +90,7 @@ const EDITS = {
     // (pending a fresh pull) rather than asserting new July reach figures —
     // matched here instead of the earlier (now superseded) 364K estimate.
     { objectId: 'p3_i16', text: 'EMPLOYER & BUYER AUDIENCE REACH  ·  JULY 2026  ·  PRODUCT PORTFOLIO' },
-    { objectId: 'p3_i17', text: 'LinkedIn continues to deliver qualified professional reach into Big Four and global accounting firms. Deloitte and EY lead click volume in Q1. The new CertOT campaign extends reach into L&D and HR buying committees. Meta B2C Certificates reached 7.84M unique users in June at £0.15 CPM — the retargeting pool from those visitors is not yet activated. Confirming ACCA Global Meta pixel remains the highest-leverage open action.\n' },
+    { objectId: 'p3_i17', text: 'LinkedIn continues to deliver qualified reach into Big Four firms — Deloitte and EY lead clicks in Q1. CertOT extends reach into L&D and HR. Confirming ACCA Global Meta pixel remains the highest-leverage open action.\n' },
     { objectId: 'p3_i19', text: 'LI IMPRESSIONS (Q1)' },
     { objectId: 'p3_i20', text: '428K' },
     { objectId: 'p3_i21', text: 'All cert ad sets · Apr–Jun' },
