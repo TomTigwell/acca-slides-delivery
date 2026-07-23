@@ -114,12 +114,8 @@ const COVER = {
     deptLabel: 'PRODUCT MARKETING  ·  JULY 2026  ·  MONTHLY PERFORMANCE BRIEF',
     subtitle: 'Product Marketing · LinkedIn Account 509501623 · July 2026',
     cardLabel: 'JULY SNAPSHOT',
-    cardBody: 'Checkout initiations reached 86 in July so far — 8% above the 80/month target — at £25 cost per checkout, down from June’s 127 as the funnel narrows: 1,458 registrations, 112 add-to-carts, 86 checkouts.',
-    miniStats: [
-      ['JULY CHECKOUTS', '86 vs 80 target'],
-      ['COST / CHECKOUT', '£25'],
-      ['LINKEDIN REACH', '364,097 impr'],
-    ],
+    cardBody: 'Checkout initiations reached 86 in July — 8% above the 80/month target — at £25 cost per checkout, down from June’s 127 as the funnel narrows toward higher-intent buyers.',
+    miniStats: null,
   },
   brand: {
     slideId: 'g3f393645d4a_0_0',
@@ -127,7 +123,7 @@ const COVER = {
     deptLabel: 'BRAND & EVENTS DIVISION  ·  JULY 2026  ·  MONTHLY PERFORMANCE BRIEF',
     subtitle: 'Brand & Events · LinkedIn Account 509501623 · July 2026',
     cardLabel: 'JULY SNAPSHOT',
-    cardBody: 'LinkedIn paid reach hit 309,292 impressions in July at £12.4 CPM. VCF delivered 34 employer leads — Africa 24 at £44 CPL, APAC 10 at £177 — plus a 135,630-impression APAC awareness boost. Meta figures pending from the freelancer.',
+    cardBody: 'LinkedIn paid reach hit 309,292 impressions in July at £12.4 CPM. VCF delivered 34 employer leads — Africa 24 at £44 CPL, APAC 10 at £177 — plus a 135,630-impression awareness boost.',
     miniStats: null,
   },
 };
@@ -200,12 +196,12 @@ function buildCoverRequests(spec) {
     fontFamily: 'DM Sans', fontSize: 13, color: COLOR.muted,
   }));
 
-  requests.push(...rectRequests('cov_card', slideId, [95, 458, 730, spec.miniStats ? 300 : 250], 'ROUND_RECTANGLE', COLOR.card));
-  requests.push(...textRequests('cov_cardlabel', slideId, [130, 492, 600, 22], spec.cardLabel, {
+  requests.push(...rectRequests('cov_card', slideId, [95, 458, 730, spec.miniStats ? 300 : 262], 'ROUND_RECTANGLE', COLOR.card));
+  requests.push(...textRequests('cov_cardlabel', slideId, [130, 490, 600, 22], spec.cardLabel, {
     fontFamily: 'DM Sans', fontSize: 9, bold: true, color: COLOR.muted,
   }));
-  requests.push(...textRequests('cov_cardbody', slideId, [130, 522, 655, 170], spec.cardBody, {
-    fontFamily: 'Lora', fontSize: 14.5, bold: true, color: COLOR.white, lineSpacing: 130,
+  requests.push(...textRequests('cov_cardbody', slideId, [130, 520, 655, 190], spec.cardBody, {
+    fontFamily: 'Lora', fontSize: 14, bold: true, color: COLOR.white, lineSpacing: 125,
   }));
 
   if (spec.miniStats) {
