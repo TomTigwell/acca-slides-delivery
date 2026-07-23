@@ -43,29 +43,69 @@ const EDITS = {
     { objectId: 'p6_i15', text: '£130 blended CPL' },
   ],
   product: [
-    // Slide 7 — Reach — Employer & Buyer Audience: LinkedIn stat tiles
-    { objectId: 'p3_i16', text: 'EMPLOYER & BUYER AUDIENCE REACH  ·  July 2026  ·  PRODUCT PORTFOLIO' },
-    { objectId: 'p3_i19', text: 'LI IMPRESSIONS (July)' },
-    { objectId: 'p3_i20', text: '364K' },
-    { objectId: 'p3_i21', text: 'All cert ad sets · July' },
-    // Meta-sourced tiles: blanked for the freelancer, not left showing June data
-    { objectId: 'p3_i23', text: 'Meta Impr. (July)' },
-    { objectId: 'p3_i24', text: '—' },
-    { objectId: 'p3_i25', text: 'Pending Meta data' },
-    { objectId: 'p3_i32', text: 'META B2C  ·  AUDIENCE INSIGHTS  ·  JULY 2026' },
-    { objectId: 'p3_i38', text: '—' },
-    { objectId: 'p3_i39', text: '—' },
-    { objectId: 'p3_i43', text: '—' },
-    { objectId: 'p3_i44', text: '—' },
-    { objectId: 'p3_i48', text: '—' },
-    { objectId: 'p3_i49', text: '—' },
-    { objectId: 'p3_i53', text: '—' },
-    { objectId: 'p3_i54', text: '—' },
-    { objectId: 'p3_i58', text: '—' },
-    { objectId: 'p3_i59', text: '—' },
-    { objectId: 'p3_i62', text: 'Female —' },
-    { objectId: 'p3_i64', text: 'Male —' },
-    { objectId: 'p3_i65', text: '⚠ Pending Meta data — freelancer to confirm Audience Network share' },
+    // ---- Slide 2 — Exec Summary intro (LinkedIn / Meta paragraphs) ----
+    // Sourced from ACCA_Product_Monthly_Brief_July_2026.html (the client-
+    // facing July EOM brief) — real July 06 call content, not invented.
+    { objectId: 'g3f483bfcec4_0_27', text: 'Linkedin → In July we launched CertOT on LinkedIn, reactivated the paused ProDipSust Sustainability Strategy ad set — the most efficient in the portfolio at £0.50 CPC — and maintained Data Analytics and Cybersecurity on Apple-UI creative across APAC, UK, and EMEA. CERT PFM groundwork began, confirmed as a B2B-weighted proposition launching later this year.\n\nMeta → B2C Certificates continue on Data Analytics and Cybersecurity Apple-UI/video creative. June’s campaign spent £3,382 for 22.5M impressions and 7.84M unique users at £0.15 CPM. The Audience Network validation flag (76% of spend) stays open before scaling further into July.\n' },
+
+    // ---- Slide 3 — What We Did (4) / What We Learned (2) ----
+    { objectId: 'g3f483bfcec4_0_34', text: 'CertOT launched on LinkedIn.' },
+    { objectId: 'g3f483bfcec4_0_35', text: 'Certificate in Organisational Transformation went live in July, targeting L&D and HR decision-makers as a B2B-weighted proposition. First CTR and impression data due at August EOM.\n' },
+    { objectId: 'g3f483bfcec4_0_38', text: 'ProDipSust Sustainability Strategy ad set reactivated.' },
+    { objectId: 'g3f483bfcec4_0_39', text: 'Paused in Q1 despite a 0.77% CTR and £0.50 CPC — the cheapest clicks in the portfolio. Reactivated in July, running alongside a new testimonial video test.\n' },
+    { objectId: 'g3f483bfcec4_0_42', text: 'Apple-UI format holding across Data Analytics and Cybersecurity.' },
+    { objectId: 'g3f483bfcec4_0_43', text: 'Both certs continue on Apple-UI creative across LinkedIn and Meta B2C, sustaining Q1’s CTR performance into July.\n' },
+    { objectId: 'g3f483bfcec4_0_46', text: 'CERT PFM groundwork underway.' },
+    { objectId: 'g3f483bfcec4_0_47', text: 'Rashid confirmed CERT PFM is a B2B proposition launching later this year. Budget split will weight B2B LinkedIn spend above Meta B2C once it activates.\n' },
+    { objectId: 'g3f483bfcec4_0_57', text: 'Full-funnel spend timing is now understood at senior level.' },
+    { objectId: 'g3f483bfcec4_0_58', text: 'Trevor and Peter confirmed on the July 06 call that awareness spend doesn’t convert in the same month and accepted the lagged attribution model — clearing the way to report spend, impressions, and checkouts without re-justifying the funnel shape each month.\n' },
+    { objectId: 'g3f483bfcec4_0_61', text: 'Checkout tracking remains the highest-value open action.' },
+    { objectId: 'g3f483bfcec4_0_62', text: 'Trevor committed to personally push Alan on the checkout-tracking implementation. Once live, we can report actual sales attributed to paid ads and unlock Google Search as a channel.\n' },
+
+    // ---- Slide 4 — North Star narrative ----
+    // HTML's own chart shows July as a dashed "TBC" placeholder and says
+    // "July actuals pending" — matched here rather than asserting a number.
+    { objectId: 'g3f483bfcec4_0_106', text: 'Q1 closed at 127 checkouts in June — 59% above the 80/month target, averaging 83/month across the quarter. July actuals are pending; CertOT’s launch and the reactivated ProDipSust Sustainability Strategy ad set are the two moves that should maintain or extend the trajectory.\n\nProduct Checkout Initiations\n' },
+
+    // ---- Slide 5 — What We Recommend Next (LinkedIn) ----
+    // This slide's content was a known copy-paste bug (B2B lead-form text
+    // pasted into the Product master — flagged in fmf-skills' token-map.md).
+    // Replaced with real Product content from the July brief.
+    { objectId: 'g3f483bfcec4_0_120', text: 'Running CertOT on LinkedIn with Apple-UI product creative — building impression base and first CTR read for August EOM.\n' },
+    { objectId: 'g3f483bfcec4_0_123', text: 'Running the ProDipSust testimonial video test alongside the reactivated Sustainability Strategy static ad set — comparing checkout rates at next EOM.\n' },
+    { objectId: 'g3f483bfcec4_0_126', text: 'Maintaining Data Analytics and Cybersecurity at current budget — Apple-UI on LinkedIn, video scaling on Meta B2C.\n' },
+    { objectId: 'g3f483bfcec4_0_129', text: 'Preparing a full creative audit for Q2 direction, including a GIF-format test plan for August.\n' },
+    { objectId: 'g3f483bfcec4_0_134', text: 'Trevor: nudge Alan on checkout-tracking implementation — once live, we can report sales attributed to paid ads and unlock Google Search as a channel.\n' },
+    { objectId: 'g3f483bfcec4_0_137', text: 'Rashid: confirm the CERT PFM timeline for paid social — we need 2–3 weeks to brief Hassan and build creative once confirmed.\n' },
+    { objectId: 'g3f483bfcec4_0_139', text: 'DECISION\n' },
+    { objectId: 'g3f483bfcec4_0_140', text: 'Rashid: share the refreshed ProDipSust assets before the new exam window opens — we need to be live before it does.\n' },
+    { objectId: 'g3f483bfcec4_0_143', text: 'Rashid: share the new B2B case study — we want to create snackable LinkedIn assets (document ad or carousel) from it.\n' },
+    { objectId: 'g3f483bfcec4_0_146', text: 'Confirm ACCA Global Meta pixel coverage on cert product pages — this unlocks a warm retargeting pool beyond the LMS audience.\n' },
+
+    // ---- Slide 6 — What We Recommend Next (Meta) ----
+    { objectId: 'g3f483bfcec4_0_167', text: 'Can we access GA4 checkout and session data to cross-reference against Meta’s Audience Network share (76% of spend) before scaling further into July — and confirm the 25–34 segment is converting at a comparable rate?\n' },
+
+    // ---- Slide 7 — Reach — Employer & Buyer Audience ----
+    // The July brief itself keeps this section framed as Q1 historical
+    // (pending a fresh pull) rather than asserting new July reach figures —
+    // matched here instead of the earlier (now superseded) 364K estimate.
+    { objectId: 'p3_i16', text: 'EMPLOYER & BUYER AUDIENCE REACH  ·  JULY 2026  ·  PRODUCT PORTFOLIO' },
+    { objectId: 'p3_i17', text: 'LinkedIn continues to deliver qualified professional reach into Big Four and global accounting firms. Deloitte and EY lead click volume in Q1. The new CertOT campaign extends reach into L&D and HR buying committees. Meta B2C Certificates reached 7.84M unique users in June at £0.15 CPM — the retargeting pool from those visitors is not yet activated. Confirming ACCA Global Meta pixel remains the highest-leverage open action.\n' },
+    { objectId: 'p3_i19', text: 'LI IMPRESSIONS (Q1)' },
+    { objectId: 'p3_i20', text: '428K' },
+    { objectId: 'p3_i21', text: 'All cert ad sets · Apr–Jun' },
+
+    // ---- Slide 9 — Experiments intro ----
+    { objectId: 'g3f483bfcec4_0_245', text: 'Five experiments this month: two Q1 findings now confirmed (Apple-UI format, Meta video), and three live in July — ProDipSust testimonial video vs static, CertOT’s first Apple-UI test in a B2B context, and the Hot Layer reactivation call for August. The reactivated ProDipSust Sustainability Strategy ad set is the efficiency benchmark for the quarter — watch whether it holds £0.50 CPC at scale.\n' },
+
+    // ---- Slide 11 — Experiment cards ----
+    { objectId: 'g3f483bfcec4_0_269', text: 'Confirmed. Data Analytics Single Image: 0.81% CTR. Cybersecurity Single Image: 0.82% CTR. Both 80%+ above the 0.45% benchmark. Checkout activity confirmed from Cybersecurity.\n' },
+    { objectId: 'g3f483bfcec4_0_272', text: 'Apple-UI is now the default format for all active certs. CertOT launches with Apple-UI creative in July — its first run in a B2B cert context. A GIF-format test against Apple-UI static is planned for Q2.\n' },
+    { objectId: 'g3f483bfcec4_0_280', text: 'Both ad formats are now live — testimonial video and Apple-UI static running alongside the reactivated Sustainability Strategy ad set, three ProDipSust variants running simultaneously.\n' },
+    { objectId: 'g3f483bfcec4_0_283', text: 'Read date moved to August EOM — need a minimum 4 weeks of data. Compare video view rate, CTR, and checkout initiation rate; winner takes the majority of ProDipSust budget in Q2.\n' },
+
+    // ---- Slide 15 — Appendix footer ----
+    { objectId: 'p6_i56', text: 'ACCA · Product Marketing · Monthly Performance Brief · Template v2.0 · July 2026\n' },
   ],
   brand: [
     // Slide 4 — OKR chart label; June's combined LI+Meta total blanked
@@ -114,7 +154,7 @@ const COVER = {
     deptLabel: 'PRODUCT MARKETING  ·  JULY 2026  ·  MONTHLY PERFORMANCE BRIEF',
     subtitle: 'Product Marketing · LinkedIn Account 509501623 · July 2026',
     cardLabel: 'JULY SNAPSHOT',
-    cardBody: 'Checkout initiations reached 86 in July — 8% above the 80/month target — at £25 cost per checkout, down from June’s 127 as the funnel narrows toward higher-intent buyers.',
+    cardBody: 'Q2 opens with CertOT live and the persona-creative build underway. July will show whether Apple-UI and the reactivated ProDipSust Sustainability Strategy ad set can hold June’s 127-checkout momentum.',
     miniStats: null,
   },
   brand: {
@@ -232,18 +272,44 @@ function editRequests(edits) {
   return requests;
 }
 
+function tableEditRequests(edits) {
+  const requests = [];
+  for (const { objectId, rowIndex, columnIndex, text } of edits) {
+    const cellLocation = { rowIndex, columnIndex };
+    requests.push({ deleteText: { objectId, cellLocation, textRange: { type: 'ALL' } } });
+    requests.push({ insertText: { objectId, cellLocation, insertionIndex: 0, text } });
+  }
+  return requests;
+}
+
+// Ad-set status cells the July brief explicitly updates (both previously
+// "Paused") — grounded in ACCA_Product_Monthly_Brief_July_2026.html.
+const TABLE_EDITS = {
+  product: [
+    { objectId: 'p6_g12', rowIndex: 7, columnIndex: 4, text: 'Reactivated Jul' },
+    { objectId: 'p6_g12', rowIndex: 8, columnIndex: 4, text: 'Reactivate Aug' },
+  ],
+};
+
 async function generate(deckKey, masterId, title, edits = []) {
   const { data } = await drive.files.copy({
     fileId: masterId,
     supportsAllDrives: true,
     requestBody: { name: title, parents: [SHARED_DRIVE] },
   });
-  const requests = [...editRequests(edits), ...buildCoverRequests(COVER[deckKey])];
+  const requests = [
+    ...editRequests(edits),
+    ...tableEditRequests(TABLE_EDITS[deckKey] || []),
+    ...buildCoverRequests(COVER[deckKey]),
+  ];
   await slides.presentations.batchUpdate({ presentationId: data.id, requestBody: { requests } });
   console.log(title, '→', `https://docs.google.com/presentation/d/${data.id}/edit`);
   return data.id;
 }
 
-await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
+// TEMP: only regenerating Product this run (content update from the July
+// brief) — B2B and Brand are unaffected and already current. Restore both
+// calls below once confirmed, ready for the next full monthly run.
+// await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
 await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026', EDITS.product);
-await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
+// await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
