@@ -1,11 +1,9 @@
 import { google } from 'googleapis';
 
-// One-off: trash superseded draft copies from earlier iterations this
-// session (numbers-only pass with no cover, then a cover pass with a text
-// overflow bug). Trashed, not permanently deleted, so still recoverable.
+// One-off: trash superseded draft copies. Trashed, not permanently deleted,
+// so still recoverable.
 const SUPERSEDED = [
-  '1TSnYj5QyLo3x4RKgegkunhsxB3GyLg9apSAqJ6ROyqc', // Product — July-brief pass, had 2 text overflow collisions
-  '16CVIP62Q96-YdSy6P4eW0b4vAPnOFxpnoj7oSnlvIPw', // Product — pre-July-brief (numbers-only) version
+  '1zxIRpmX3CxEdLeSClUrQUoQk_jipVLP7_EmRYRNQpHI', // Product — throwaway round-trip check copy against the new template master
 ];
 
 const auth = new google.auth.GoogleAuth({
