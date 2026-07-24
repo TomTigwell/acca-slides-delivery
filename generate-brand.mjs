@@ -264,10 +264,13 @@ async function main() {
   const chartSlideId = pres.slides.find((s) => (s.pageElements || []).some((el) => el === chartEl)).objectId;
   const size = chartEl.size;
   const transform = chartEl.transform;
+  // Rendered size = size * transform scale, not size alone — this element's
+  // scale is ~169x (30000x18550 EMU base * 169.1658), so skipping the scale
+  // factor produced a ~5x3px box and a "width must be > 0" API error.
   const xPx = Math.round(transform.translateX / PX);
   const yPx = Math.round(transform.translateY / PX);
-  const wPx = Math.round(size.width.magnitude / PX);
-  const hPx = Math.round(size.height.magnitude / PX);
+  const wPx = Math.round((size.width.magnitude * transform.scaleX) / PX);
+  const hPx = Math.round((size.height.magnitude * transform.scaleY) / PX);
 
   const requests = [
     ...editRequests(EDITS),

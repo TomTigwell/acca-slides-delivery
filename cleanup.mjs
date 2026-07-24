@@ -3,7 +3,7 @@ import { google } from 'googleapis';
 // One-off: trash superseded draft copies. Trashed, not permanently deleted,
 // so still recoverable.
 const SUPERSEDED = [
-  '1zxIRpmX3CxEdLeSClUrQUoQk_jipVLP7_EmRYRNQpHI', // Product — throwaway round-trip check copy against the new template master
+  '1D1De_g0TIyaia0nUUxrnwKyyT78cu4sjerwAbxWghfs', // Brand — failed generate-brand.mjs run (batchUpdate errored before any edits applied, so this is an untouched copy)
 ];
 
 const auth = new google.auth.GoogleAuth({
