@@ -391,9 +391,6 @@ async function generate(deckKey, masterId, title, edits = []) {
   return data.id;
 }
 
-// TEMP: verifying the new Product master round-trips correctly before
-// re-enabling b2b/brand (unchanged, already delivered this cycle — no need
-// to regenerate duplicate copies just to test Product's new template).
-await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026 (template check)', EDITS.product);
-// await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
-// await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
+await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
+await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026', EDITS.product);
+await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
