@@ -1,5 +1,5 @@
 name: Generate ACCA Slides
-on: { workflow_dispatch: {}, push: { branches: ['claude/keyless-github-action-ht6e7p'] } } # TEMP: locating linked-Sheets charts; remove once confirmed
+on: { workflow_dispatch: {} }
 permissions: { id-token: write, contents: read }
 jobs:
   generate:
@@ -13,4 +13,4 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm install
-      - run: node inspect7.mjs
+      - run: node generate.mjs
