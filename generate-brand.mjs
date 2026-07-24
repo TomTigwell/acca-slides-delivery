@@ -57,6 +57,15 @@ function editRequests(edits) {
   return requests;
 }
 
+// A few objects on the Reach slide carry over legacy fontSize values that
+// nearly exactly fill their box height (e.g. a 19.178pt value in a 19pt-tall
+// box) — fine for the master's original short text, but with zero headroom
+// it renders as visibly overlapping its neighbour once re-exported. Shrink
+// just these to restore clearance without touching box geometry.
+function fontSizeFix(objectId, pt) {
+  return [{ updateTextStyle: { objectId, style: { fontSize: { magnitude: pt, unit: 'PT' } }, textRange: { type: 'ALL' }, fields: 'fontSize' } }];
+}
+
 function tableEditRequests(edits) {
   const requests = [];
   for (const { objectId, rowIndex, columnIndex, text } of edits) {
@@ -231,7 +240,7 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 7, text: '—' },
 
   // Total row
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 2, text: `£${TOTAL_SPEND}` },
+  { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 2, text: `£${Number(TOTAL_SPEND).toLocaleString(undefined, { minimumFractionDigits: 2 })}` },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 3, text: TOTAL_IMPR.toLocaleString() },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 4, text: TOTAL_CLICKS.toLocaleString() },
 ];
@@ -289,9 +298,14 @@ async function main() {
     ...textRequests('brand_ns_value2', chartSlideId, [xPx + wPx / 2 + 15, yPx + 55, wPx / 2 - 45, 60], `£${BLENDED_CPL}`, {
       fontFamily: 'Lora', fontSize: 40, bold: true, color: COLOR.white,
     }),
-    ...textRequests('brand_ns_note', chartSlideId, [xPx + 30, yPx + 130, wPx - 60, hPx - 160], 'VCF Africa + APAC Lead Generation, July 2026. Native stat block — a per-month Sheets-linked chart for Brand is still pending (needs the Sheets API enabled on the automation project).', {
+    ...textRequests('brand_ns_note', chartSlideId, [xPx + 30, yPx + 210, wPx - 60, hPx - 240], 'VCF Africa + APAC Lead Generation, July 2026. Native stat block — a per-month Sheets-linked chart for Brand is still pending (needs the Sheets API enabled on the automation project).', {
       fontFamily: 'DM Sans', fontSize: 10, color: COLOR.muted, lineSpacing: 130,
     }),
+    // Reach-slide overlap fix (see fontSizeFix comment above)
+    ...fontSizeFix('p3_i17', 8),
+    ...fontSizeFix('p3_i16', 5.5),
+    ...fontSizeFix('p3_i20', 14),
+    ...fontSizeFix('g3f59aaca611_0_8', 14),
   ];
   if (reachTableEl) requests.push({ deleteObject: { objectId: reachTableEl.objectId } });
   if (reachCaptionId) requests.push({ deleteObject: { objectId: reachCaptionId } });
