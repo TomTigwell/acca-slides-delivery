@@ -2,7 +2,12 @@ import { google } from 'googleapis';
 
 const SHARED_DRIVE = '0AKpoLPF9OkBJUk9PVA';
 const MASTERS = {
-  product: '13RsJLhqAsTgowBdVnWqAtG460MSz49Ph7vcx3ecvnqo',
+  // [MASTER] ACCA Product — promoted from the client-edited, HTML-brief-
+  // matched deck (the user's manual pass on top of the July delivery).
+  // Native cov_* cover shapes and all object IDs below were confirmed to
+  // survive drive.files.copy, so this is the canonical reusable template
+  // going forward — not the original 15-slide generator output.
+  product: '1H6pbNQEjt7gBWzpUs3Ns06Y11mSSUsXXRpLA0QkgZks',
   b2b:     '1dZJV-dvJaRVUxTCYOoR2QQcyRa2N6LAIV780U8ezqHg',
   brand:   '12WS8qbsgSW8KrOLA9h2A9mjVLnf4aBAQuH4MY1s95P8',
 };
@@ -42,70 +47,86 @@ const EDITS = {
     { objectId: 'p6_i13', text: '10' },
     { objectId: 'p6_i15', text: '£130 blended CPL' },
   ],
+  // Grounded against the NEW master (inspect5.mjs dump, run 30087794104):
+  // the user's manually-restructured, HTML-brief-matched 9-slide deck. Every
+  // entry below is the CURRENT (July 2026) text on that object ID — an
+  // identity fill that proves the round-trip, and the array a future editor
+  // swaps values in to populate next month's data. Object IDs prefixed
+  // g3f483bfcec4_0_* are carried over from the original build; g3f59aaca611_0_*
+  // are new content added during the user's manual edit. Left OUT deliberately
+  // (structural template scaffolding, not monthly data): section headers
+  // ("What We Did", "Hypothesis", "Learning", "WHAT WE'RE DOING", etc.),
+  // numbered-item markers, experiment card titles/hypotheses (the experiment
+  // itself doesn't change monthly, only its Learning/Action), and the two
+  // static Q1 reference tables (p3_g5 company table, p3_i30 header) — no
+  // July-level breakdown replaces those, same rationale as the original
+  // numbers-only pass.
   product: [
-    // ---- Slide 2 — Exec Summary intro (LinkedIn / Meta paragraphs) ----
-    // Sourced from ACCA_Product_Monthly_Brief_July_2026.html (the client-
-    // facing July EOM brief) — real July 06 call content, not invented.
-    { objectId: 'g3f483bfcec4_0_27', text: 'Linkedin → In July we launched CertOT on LinkedIn, reactivated the paused ProDipSust Sustainability Strategy ad set — the most efficient in the portfolio at £0.50 CPC — and maintained Data Analytics and Cybersecurity on Apple-UI creative across APAC, UK, and EMEA. CERT PFM groundwork began, confirmed as a B2B-weighted proposition launching later this year.\n\nMeta → B2C Certificates continue on Data Analytics and Cybersecurity Apple-UI/video creative. June’s campaign spent £3,382 for 22.5M impressions and 7.84M unique users at £0.15 CPM. The Audience Network validation flag (76% of spend) stays open before scaling further into July.\n' },
+    // ---- Cover ----
+    { objectId: 'cov_dept', text: 'PRODUCT MARKETING  ·  JULY 2026  ·  MONTHLY PERFORMANCE BRIEF' },
+    { objectId: 'cov_headline', text: 'July 2026\nPerformance Brief' },
+    { objectId: 'cov_subtitle', text: 'Product Marketing · LinkedIn Account 509501623 · July 2026' },
+    { objectId: 'cov_cardlabel', text: 'JULY SNAPSHOT' },
+    { objectId: 'cov_cardbody', text: 'Q2 opens with CertOT live and the persona-creative build underway. July will show whether Apple-UI and the reactivated ProDipSust Sustainability Strategy ad set can hold June’s 127-checkout momentum.' },
+    { objectId: 'cov_footer', text: 'PREPARED BY FILL MY FUNNEL  ·  JULY 2026' },
 
-    // ---- Slide 3 — What We Did (4) / What We Learned (2) ----
-    { objectId: 'g3f483bfcec4_0_34', text: 'CertOT launched on LinkedIn.' },
-    { objectId: 'g3f483bfcec4_0_35', text: 'Certificate in Organisational Transformation went live in July, targeting L&D and HR decision-makers as a B2B-weighted proposition. First CTR and impression data due at August EOM.\n' },
-    { objectId: 'g3f483bfcec4_0_38', text: 'ProDipSust Sustainability Strategy ad set reactivated.' },
-    { objectId: 'g3f483bfcec4_0_39', text: 'Paused in Q1 despite a 0.77% CTR and £0.50 CPC — the cheapest clicks in the portfolio. Reactivated in July, running alongside a new testimonial video test.\n' },
-    { objectId: 'g3f483bfcec4_0_42', text: 'Apple-UI format holding across Data Analytics and Cybersecurity.' },
-    { objectId: 'g3f483bfcec4_0_43', text: 'Both certs continue on Apple-UI creative across LinkedIn and Meta B2C, sustaining Q1’s CTR performance into July.\n' },
-    { objectId: 'g3f483bfcec4_0_46', text: 'CERT PFM groundwork underway.' },
-    { objectId: 'g3f483bfcec4_0_47', text: 'Rashid confirmed CERT PFM is B2B-weighted, launching later this year — budget split favors LinkedIn over Meta B2C.\n' },
-    { objectId: 'g3f483bfcec4_0_57', text: 'Full-funnel spend timing is now understood at senior level.' },
-    { objectId: 'g3f483bfcec4_0_58', text: 'Trevor and Peter confirmed on the July 06 call that awareness spend doesn’t convert in the same month and accepted the lagged attribution model — clearing the way to report spend, impressions, and checkouts without re-justifying the funnel shape each month.\n' },
-    { objectId: 'g3f483bfcec4_0_61', text: 'Checkout tracking remains the highest-value open action.' },
-    { objectId: 'g3f483bfcec4_0_62', text: 'Trevor committed to personally push Alan on the checkout-tracking implementation. Once live, we can report actual sales attributed to paid ads and unlock Google Search as a channel.\n' },
+    // ---- Slide 2 — Exec Summary intro ----
+    { objectId: 'g3f483bfcec4_0_27', text: 'In July we launched CertOT on LinkedIn, maintained the full product portfolio (ProDipSust, Data Analytics, Cybersecurity) with Apple-UI creatives, reactivated the paused ProDipSust Sustainability Strategy ad set, and began the CERT PFM groundwork — running across LinkedIn and Meta B2C simultaneously across APAC, UK, and EMEA. \n' },
+
+    // ---- Slide 3 — What We Did (4 numbered items) ----
+    { objectId: 'g3f483bfcec4_0_34', text: 'CertOT launched on LinkedIn.\n' },
+    { objectId: 'g3f483bfcec4_0_35', text: 'Certificate in Organisational Transformation went live on LinkedIn in July per Rashid\'s July 06 EOM update. First week impressions and CTR data are pending — initial signals from Rashid confirm it is primarily a B2B proposition, meaning creative framing must target L&D and HR decision-makers, not individual learners.\n\n' },
+    { objectId: 'g3f483bfcec4_0_38', text: 'ProDipSust Sustainability Strategy ad set reactivated.\n' },
+    { objectId: 'g3f483bfcec4_0_39', text: 'This ad set was paused in Q1 despite a 0.77% CTR and £0.50 CPC. Reactivation in July recovers the cheapest clicks in the product portfolio. It should take the majority of the ProDipSust budget while testimonial video is tested alongside it.\n\n' },
+    { objectId: 'g3f483bfcec4_0_42', text: 'The full-funnel spend model is now understood at senior level.\n' },
+    { objectId: 'g3f483bfcec4_0_43', text: 'Trevor and Peter confirmed on the July 06 call that they understand awareness spend does not convert in the same month — they accepted the lagged attribution model and asked us to document the assumed lag. This clears the way to report spend, impressions, and checkouts without having to justify the funnel shape every month.\n\n' },
+    { objectId: 'g3f483bfcec4_0_46', text: 'Checkout tracking is still incomplete — Alan\'s action is unblocked.\n' },
+    { objectId: 'g3f483bfcec4_0_47', text: 'Trevor committed on the July 06 call to personally push Alan on the checkout-tracking implementation. Once in place, we can report actual sales attributed to paid ads and unlock Google Search as an additional channel. This remains the single most valuable technical action outstanding.\n\n' },
 
     // ---- Slide 4 — North Star narrative ----
-    // HTML's own chart shows July as a dashed "TBC" placeholder and says
-    // "July actuals pending" — matched here rather than asserting a number.
-    { objectId: 'g3f483bfcec4_0_106', text: 'Q1 closed at 127 checkouts in June — 59% above the 80/month target, averaging 83/month across the quarter. July actuals are pending; CertOT’s launch and the reactivated ProDipSust Sustainability Strategy ad set are the two moves that should maintain or extend the trajectory.\n\nProduct Checkout Initiations\n' },
+    // NOTE: still literally says "July actuals pending" while the chart's
+    // 4th bar (no text content, so not editable via this text-based pass)
+    // visually reads ~87 — flagged to the user as an open contradiction.
+    { objectId: 'g3f483bfcec4_0_106', text: 'Q1 close: 34 → 87 → 127. Q1 averaged 83 checkouts/month — already above the 80/month target. July actuals pending. New cert (CertOT) and reactivated ad set (ProDipSust Sustainability Strategy) should maintain or extend this trajectory. \n\n' },
 
     // ---- Slide 5 — What We Recommend Next (LinkedIn) ----
-    // This slide's content was a known copy-paste bug (B2B lead-form text
-    // pasted into the Product master — flagged in fmf-skills' token-map.md).
-    // Replaced with real Product content from the July brief.
-    { objectId: 'g3f483bfcec4_0_120', text: 'Running CertOT on LinkedIn with Apple-UI product creative — building impression base and first CTR read for August EOM.\n' },
-    { objectId: 'g3f483bfcec4_0_123', text: 'Running the ProDipSust testimonial video test alongside the reactivated Sustainability Strategy static ad set — comparing checkout rates at next EOM.\n' },
-    { objectId: 'g3f483bfcec4_0_126', text: 'Maintaining Data Analytics and Cybersecurity at current budget — Apple-UI on LinkedIn, video scaling on Meta B2C.\n' },
-    { objectId: 'g3f483bfcec4_0_129', text: 'Preparing a full creative audit for Q2 direction, including a GIF-format test plan for August.\n' },
-    { objectId: 'g3f483bfcec4_0_134', text: 'Trevor: nudge Alan on checkout-tracking implementation — once live, we can report sales attributed to paid ads and unlock Google Search as a channel.\n' },
-    { objectId: 'g3f483bfcec4_0_137', text: 'Rashid: confirm the CERT PFM timeline for paid social — we need 2–3 weeks to brief Hassan and build creative once confirmed.\n' },
-    { objectId: 'g3f483bfcec4_0_139', text: 'DECISION\n' },
-    { objectId: 'g3f483bfcec4_0_140', text: 'Rashid: share the refreshed ProDipSust assets before the new exam window opens — we need to be live before it does.\n' },
+    { objectId: 'g3f483bfcec4_0_120', text: 'Running CertOT on LinkedIn with Apple-UI product creative — building impression base and first CTR read for August EOM.\n\n' },
+    { objectId: 'g3f483bfcec4_0_123', text: 'Running the ProDipSust testimonial video test alongside the reactivated Sustainability Strategy static ad set — comparing checkout rates at next EOM.\n\n' },
+    { objectId: 'g3f483bfcec4_0_126', text: 'Maintaining Data Analytics and Cybersecurity at current budget — Apple-UI on LinkedIn, video scaling on Meta B2C.\n\n' },
+    { objectId: 'g3f483bfcec4_0_129', text: 'Preparing a full creative audit for Q2 direction, including a GIF-format test plan for August.\n\n' },
+    { objectId: 'g3f483bfcec4_0_134', text: 'Checkout-tracking implementation — once live, we can report sales attributed to paid ads and unlock Google Search as a channel.\n\n' },
+    { objectId: 'g3f483bfcec4_0_137', text: 'Rashid: confirm the CERT PFM timeline for paid social — we need 2–3 weeks to brief Hassan and build creative once confirmed.\n\n' },
+    { objectId: 'g3f483bfcec4_0_140', text: 'Adding spend data to the North Star chart and a cert-level logbook to every future Product EOM report, as requested on the July 06 call.\n\n' },
     { objectId: 'g3f483bfcec4_0_143', text: 'Rashid: share the new B2B case study — we want to create snackable LinkedIn assets (document ad or carousel) from it.\n' },
-    { objectId: 'g3f483bfcec4_0_146', text: 'Confirm ACCA Global Meta pixel coverage on cert product pages — this unlocks a warm retargeting pool beyond the LMS audience.\n' },
+    { objectId: 'g3f483bfcec4_0_146', text: 'Confirm ACCA Global Meta pixel coverage on cert product pages — this unlocks a warm retargeting pool beyond the LMS audience.\n\n' },
+    { objectId: 'g3f59aaca611_0_5', text: 'Rashid: share the refreshed ProDipSust assets as soon as they are ready. New exam window is opening soon — we need to be live before it does.\n\n' },
 
-    // ---- Slide 6 — What We Recommend Next (Meta) ----
-    { objectId: 'g3f483bfcec4_0_167', text: 'Can we access GA4 checkout and session data to cross-reference against Meta’s Audience Network share (76% of spend) before scaling further into July — and confirm the 25–34 segment is converting at a comparable rate?\n' },
+    // ---- Slide 6 — Reach ----
+    { objectId: 'p3_i16', text: 'Product Audience Reach  ·  July 2026  ·  LinkedIn \n' },
+    { objectId: 'p3_i17', text: 'LinkedIn continues to deliver qualified professional reach into Big Four and global accounting firms. Deloitte and EY lead click volume in Q1. The new CertOT campaign in July extends reach into L&D and HR buying committees.\n' },
+    { objectId: 'p3_i19', text: 'LI IMPRESSIONS (Q1)\n' },
+    { objectId: 'p3_i20', text: '428K\n' },
+    { objectId: 'p3_i21', text: 'All cert ad sets · Apr–Jun\n' },
+    { objectId: 'g3f59aaca611_0_7', text: 'LI Q1 Clicks\n' },
+    { objectId: 'g3f59aaca611_0_8', text: '2,673\n' },
+    { objectId: 'g3f59aaca611_0_9', text: 'All cert ad sets · Apr–Jun\n' },
 
-    // ---- Slide 7 — Reach — Employer & Buyer Audience ----
-    // The July brief itself keeps this section framed as Q1 historical
-    // (pending a fresh pull) rather than asserting new July reach figures —
-    // matched here instead of the earlier (now superseded) 364K estimate.
-    { objectId: 'p3_i16', text: 'EMPLOYER & BUYER AUDIENCE REACH  ·  JULY 2026  ·  PRODUCT PORTFOLIO' },
-    { objectId: 'p3_i17', text: 'LinkedIn continues to deliver qualified reach into Big Four firms — Deloitte and EY lead clicks in Q1. CertOT extends reach into L&D and HR. Confirming ACCA Global Meta pixel remains the highest-leverage open action.\n' },
-    { objectId: 'p3_i19', text: 'LI IMPRESSIONS (Q1)' },
-    { objectId: 'p3_i20', text: '428K' },
-    { objectId: 'p3_i21', text: 'All cert ad sets · Apr–Jun' },
+    // ---- Slide 7 — Experiments intro + 2 carried-forward cards ----
+    { objectId: 'g3f483bfcec4_0_261', text: 'Three experiments running in July: ProDipSust testimonial video vs static, Meta video scaling on Cybersecurity, and CertOT first-impression test. Two experiments carry forward from Q1 as confirmed findings. The ProDipSust reactivation ad set (Sustainability Strategy) is the efficiency benchmark for the quarter — watch whether it holds £0.50 CPC at scale.\n' },
+    { objectId: 'g3f483bfcec4_0_269', text: 'Confirmed. Data Analytics Single Image: 0.81% CTR. Cybersecurity Single Image: 0.82% CTR. Both 80%+ above the 0.45% benchmark. Rashid and Brinley endorsed this format on the June 11 call. Checkout activity confirmed from Cybersecurity.\n\n' },
+    { objectId: 'g3f483bfcec4_0_271', text: 'JULY ACTION\n' },
+    { objectId: 'g3f483bfcec4_0_272', text: 'Apple-UI is now the default format for all active certs. CertOT launches with Apple-UI creative in July. GIF-format test against Apple-UI static planned for Q2. Hassan briefed on next creative batch.\n\n' },
+    { objectId: 'g3f483bfcec4_0_280', text: 'Rashid shared new ProDipSust testimonial videos on the June 11 call. Both ad formats are now live. Test began in July alongside the reactivated Sustainability Strategy ad set — three ProDipSust variants running simultaneously.\n\n' },
+    { objectId: 'g3f483bfcec4_0_282', text: 'JULY ACTION\n' },
+    { objectId: 'g3f483bfcec4_0_283', text: 'August EOM. We need minimum 4 weeks of data. Compare: video view rate, CTR, and checkout initiation rate between testimonial video and Apple-UI static. Winner takes majority of ProDipSust budget in Q2.\n\n' },
 
-    // ---- Slide 9 — Experiments intro ----
-    { objectId: 'g3f483bfcec4_0_245', text: 'Five experiments this month: two Q1 findings now confirmed (Apple-UI format, Meta video), and three live in July — ProDipSust testimonial video vs static, CertOT’s first Apple-UI test in a B2B context, and the Hot Layer reactivation call for August. The reactivated ProDipSust Sustainability Strategy ad set is the efficiency benchmark for the quarter — watch whether it holds £0.50 CPC at scale.\n' },
-
-    // ---- Slide 11 — Experiment cards ----
-    { objectId: 'g3f483bfcec4_0_269', text: 'Confirmed. Data Analytics Single Image: 0.81% CTR. Cybersecurity Single Image: 0.82% CTR. Both 80%+ above the 0.45% benchmark. Checkout activity confirmed from Cybersecurity.\n' },
-    { objectId: 'g3f483bfcec4_0_272', text: 'Apple-UI is now the default format for all active certs. CertOT launches with Apple-UI creative in July — its first run in a B2B cert context. A GIF-format test against Apple-UI static is planned for Q2.\n' },
-    { objectId: 'g3f483bfcec4_0_280', text: 'Both ad formats are now live — testimonial video and Apple-UI static running alongside the reactivated Sustainability Strategy ad set, three ProDipSust variants running simultaneously.\n' },
-    { objectId: 'g3f483bfcec4_0_283', text: 'Read date moved to August EOM — need a minimum 4 weeks of data. Compare video view rate, CTR, and checkout initiation rate; winner takes the majority of ProDipSust budget in Q2.\n' },
-
-    // ---- Slide 15 — Appendix footer ----
-    { objectId: 'p6_i56', text: 'ACCA · Product Marketing · Monthly Performance Brief · Template v2.0 · July 2026\n' },
+    // ---- Slide 8 — New experiment cards (CertOT, Hot Layer) ----
+    { objectId: 'g3f59aaca611_0_25', text: 'CertOT went live in July per Rashid\'s July 06 update ("OT launched on Friday"). CertOT is primarily a B2B proposition. The Apple-UI format has not yet been tested in a B2B cert context — this is its first run. Audience: L&D, HR, and transformation leaders at target firms.\n\n' },
+    { objectId: 'g3f59aaca611_0_27', text: 'JULY ACTION\n' },
+    { objectId: 'g3f59aaca611_0_28', text: 'August EOM — first CTR and impression data. If CTR is below 0.45% benchmark, test a B2B-specific headline frame ("Your team\'s transformation starts here") alongside the product UI visual. If above benchmark, scale budget.\n\n' },
+    { objectId: 'g3f59aaca611_0_36', text: 'Reactivating the hot layer with proper budget allocation will drive checkout initiations from warm audiences at the lowest CPL in the portfolio, because the custom audience is already the most commercially qualified pool we have.\n\n' },
+    { objectId: 'g3f59aaca611_0_38', text: 'JULY ACTION\n' },
+    { objectId: 'g3f59aaca611_0_39', text: 'Reactivate in August with a £300–500 test budget. Confirm the custom audience is still current. If CTR holds above 3%, scale aggressively. This is the Q2 reactivation priority — it should not wait another month.\n\n' },
   ],
   brand: [
     // Slide 4 — OKR chart label; June's combined LI+Meta total blanked
@@ -116,16 +137,22 @@ const EDITS = {
   ],
 };
 
-// ---- Native cover rebuild -------------------------------------------------
-// The master's Slide 1 is a single flattened screenshot image (confirmed via
-// a raw Slides API element dump — one image element, no text). That means
-// the month is baked into pixels and can never be updated without
-// re-exporting a new screenshot from whatever design tool produced it. This
-// replaces it with real Slides shapes/text so the month updates like any
-// other field. Visual language (deep red field, darker diagonal wedge,
-// serif headline, small-caps kicker, translucent stat card) is matched from
-// the rendered master, not pixel-for-pixel — colours were sampled directly
-// off the master's exported PDF.
+// ---- Native cover rebuild (b2b / brand only) -------------------------------
+// The b2b and brand masters' Slide 1 is still a single flattened screenshot
+// image (confirmed via a raw Slides API element dump — one image element,
+// no text). That means the month is baked into pixels and can never be
+// updated without re-exporting a new screenshot from whatever design tool
+// produced it. This replaces it with real Slides shapes/text so the month
+// updates like any other field. Visual language (deep red field, darker
+// diagonal wedge, serif headline, small-caps kicker, translucent stat card)
+// is matched from the rendered master, not pixel-for-pixel — colours were
+// sampled directly off the master's exported PDF.
+//
+// The product master no longer needs this: its cover was rebuilt as native
+// cov_* shapes during the earlier "no screenshot cover" pass, those shapes
+// survive drive.files.copy, and its cover text now lives as plain entries
+// in EDITS.product above (see generate() below — buildCoverRequests only
+// runs when COVER[deckKey] exists).
 
 const PAGE = { w: 9144000, h: 5143500 }; // EMU, confirmed via presentations.get
 const PX = 6350; // EMU per px at this page's native render scale
@@ -148,15 +175,8 @@ const COVER = {
     cardBody: '£1,295 spend delivered 10 B2B leads at £130 CPL in July — a 69% improvement on June’s £415 CPL. APAC drove 8 of the 10 leads on £659 spend; EMEA added 2 on £636; UK stayed paused.',
     miniStats: null,
   },
-  product: {
-    slideId: 'g3f483bfcec4_0_0',
-    imageId: 'g3f483bfcec4_0_4',
-    deptLabel: 'PRODUCT MARKETING  ·  JULY 2026  ·  MONTHLY PERFORMANCE BRIEF',
-    subtitle: 'Product Marketing · LinkedIn Account 509501623 · July 2026',
-    cardLabel: 'JULY SNAPSHOT',
-    cardBody: 'Q2 opens with CertOT live and the persona-creative build underway. July will show whether Apple-UI and the reactivated ProDipSust Sustainability Strategy ad set can hold June’s 127-checkout momentum.',
-    miniStats: null,
-  },
+  // product intentionally absent: its cover is native cov_* shapes already,
+  // populated via plain text edits in EDITS.product instead.
   brand: {
     slideId: 'g3f393645d4a_0_0',
     imageId: 'g3f393645d4a_0_4',
@@ -282,12 +302,76 @@ function tableEditRequests(edits) {
   return requests;
 }
 
-// Ad-set status cells the July brief explicitly updates (both previously
-// "Paused") — grounded in ACCA_Product_Monthly_Brief_July_2026.html.
+// Product's appendix table (slide 9, g3f59aaca611_0_73) replaced the old
+// per-status table entirely — it's now a single Layer/Ad Set/Spend/Impr/
+// Clicks/CTR/CPM/CPC breakdown with no Status column, so the old "Reactivated
+// Jul"/"Reactivate Aug" cell edits no longer have anywhere to live. This is
+// an identity fill of the CURRENT July numbers (grounded in the inspect5.mjs
+// dump) — the cells a future month's editor swaps for new ad-set performance.
+// NOTE: row 3 col 3 ("44.692") is dumped verbatim from the master and looks
+// like a data-entry typo (every other Impr cell uses a comma, e.g. "46,769")
+// — flagged, not silently corrected, since it's the user's own edit.
 const TABLE_EDITS = {
   product: [
-    { objectId: 'p6_g12', rowIndex: 7, columnIndex: 4, text: 'Reactivated Jul' },
-    { objectId: 'p6_g12', rowIndex: 8, columnIndex: 4, text: 'Reactivate Aug' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 2, text: '£532' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 3, text: '44.692' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 4, text: '355' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 5, text: '0.81%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 6, text: '£12.77' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 3, columnIndex: 7, text: '£1.55' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 2, text: '£483' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 3, text: '46,769' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 4, text: '241' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 5, text: '0.52%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 6, text: '£10.48' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 7, text: '£2.00' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 2, text: '£489' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 3, text: '33,705' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 4, text: '268' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 5, text: '0.82%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 6, text: '£15.32' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 7, text: '£1.86' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 2, text: '£525' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 3, text: '66,840' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 4, text: '255' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 5, text: '0.38%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 6, text: '£7.92' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 7, text: '£2.08' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 2, text: '£1,078' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 3, text: '57,528' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 4, text: '346' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 5, text: '0.60%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 6, text: '£20.51' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 7, text: '£3.42' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 2, text: '£754' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 3, text: '117,179' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 4, text: '792' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 5, text: '0.69%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 6, text: '£6.43' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 7, text: '£0.95' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 2, text: '£348' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 3, text: '61,477' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 4, text: '411' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 5, text: '0.77%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 6, text: '£3.48' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 7, text: '£0.50' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 2, text: '£18' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 3, text: '155' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 4, text: '5' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 5, text: '3.23%' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 6, text: '£116' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: 7, text: '£3.60' },
+
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 2, text: '£4,229' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 3, text: '428,345' },
+    { objectId: 'g3f59aaca611_0_73', rowIndex: 13, columnIndex: 4, text: '2,673' },
   ],
 };
 
@@ -300,13 +384,16 @@ async function generate(deckKey, masterId, title, edits = []) {
   const requests = [
     ...editRequests(edits),
     ...tableEditRequests(TABLE_EDITS[deckKey] || []),
-    ...buildCoverRequests(COVER[deckKey]),
+    ...(COVER[deckKey] ? buildCoverRequests(COVER[deckKey]) : []),
   ];
   await slides.presentations.batchUpdate({ presentationId: data.id, requestBody: { requests } });
   console.log(title, '→', `https://docs.google.com/presentation/d/${data.id}/edit`);
   return data.id;
 }
 
-await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
-await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026', EDITS.product);
-await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
+// TEMP: verifying the new Product master round-trips correctly before
+// re-enabling b2b/brand (unchanged, already delivered this cycle — no need
+// to regenerate duplicate copies just to test Product's new template).
+await generate('product', MASTERS.product, 'ACCA Product Marketing — July 2026 (template check)', EDITS.product);
+// await generate('b2b', MASTERS.b2b, 'ACCA B2B — July 2026', EDITS.b2b);
+// await generate('brand', MASTERS.brand, 'ACCA Employer Brand — July 2026', EDITS.brand);
