@@ -74,7 +74,10 @@ console.log('uploaded:', { brandUrl, b2cUrl, b2bUrl });
       createImage: {
         objectId: 'brand_ns_chart_img',
         url: brandUrl,
-        elementProperties: { pageObjectId: 'g3f483bfcec4_0_95', ...imageBox(87, 395, 739, 320) },
+        // y=460 (not 395): brand_ns_value1/2's 40pt text overflows its nominal
+        // 60px box down to ~y427 (confirmed via PDF text-bbox inspection) — the
+        // chart must start below that to avoid overlapping the big stat numbers.
+        elementProperties: { pageObjectId: 'g3f483bfcec4_0_95', ...imageBox(140, 460, 634, 274) },
       },
     },
   ];
@@ -90,7 +93,7 @@ console.log('uploaded:', { brandUrl, b2cUrl, b2bUrl });
       createImage: {
         objectId: 'b2c_ns_chart_img',
         url: b2cUrl,
-        elementProperties: { pageObjectId: 'g3f483bfcec4_0_95', ...imageBox(87, 395, 739, 320) },
+        elementProperties: { pageObjectId: 'g3f483bfcec4_0_95', ...imageBox(140, 460, 634, 274) },
       },
     },
   ];
