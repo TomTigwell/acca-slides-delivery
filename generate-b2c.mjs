@@ -123,17 +123,21 @@ const EDITS = [
   // Slide 4 — North Star narrative (chart itself is replaced separately below)
   { objectId: 'g3f483bfcec4_0_106', text: `July drove ${TOTAL_REG.toLocaleString()} Register actions at a £${BLENDED_CPA} blended CPA — Cert-OT Product Traffic’s £0.87 CPA is the strongest result, while Cybersecurity Single Image’s £2.44 CPA is the weakest. A smaller 21 Add To Cart and 17 Proceed Checkout actions sit further down the funnel. Cert-AI campaigns are absent from this account and can’t be included until confirmed.\n\n` },
 
-  // Slide 5 — What We Recommend Next
+  // Slide 5 — What We Recommend Next. LEFT column ("WHAT WE'RE DOING") is
+  // 120/123/126/129/140 (five slots, all x≈118); RIGHT column ("WHAT WE
+  // NEED FROM YOU") is 134/137/143/146/g3f59aaca611_0_5 (x≈829) — confirmed
+  // via inspect11.mjs after 140 was originally (and wrongly) treated as a
+  // right-column slot, which put a "need"-phrased ask inside the doing box.
   { objectId: 'g3f483bfcec4_0_120', text: 'Running Cert-OT Product Traffic (Single Image) at current budget — £0.87 CPA is the strongest result in the account this month.\n\n' },
   { objectId: 'g3f483bfcec4_0_123', text: 'Running Cert-OT Product Views (Video) alongside Traffic — monitoring whether CPA narrows as video creative matures.\n\n' },
   { objectId: 'g3f483bfcec4_0_126', text: 'Maintaining all four Cybersecurity and Data Analytics Cold Layer campaigns — CPA holding in a £1.30–£2.44 band.\n\n' },
   { objectId: 'g3f483bfcec4_0_129', text: 'Holding budget steady pending confirmation of the Cert-AI campaigns.\n\n' },
+  { objectId: 'g3f483bfcec4_0_140', text: 'Monitoring the Cert-OT Traffic vs Views CPA gap monthly to confirm whether it holds as spend scales.\n\n' },
   { objectId: 'g3f483bfcec4_0_134', text: 'Confirm whether "Cert-AI Phase 3" campaigns sit under a different account or exact naming convention — neither Traffic nor Views was found this month.\n\n' },
   { objectId: 'g3f483bfcec4_0_137', text: 'Confirm whether Cybersecurity Single Image’s £2.44 CPA (the weakest of the six) should be paused in favour of the stronger Data Analytics Single Image result.\n\n' },
-  { objectId: 'g3f483bfcec4_0_140', text: 'Confirm which funnel action — Register, Add To Cart, or Proceed Checkout — should be the primary KPI for this report going forward.\n\n' },
   { objectId: 'g3f483bfcec4_0_143', text: 'Share any planned August budget shift across the three cert lines so next month’s targets can be set accordingly.\n' },
   { objectId: 'g3f483bfcec4_0_146', text: 'Provide the correct Cert-AI campaign names or IDs so August’s report can include them.\n\n' },
-  { objectId: 'g3f59aaca611_0_5', text: 'Confirm which of the two conflicting conversion totals (817 vs 1,141 — see appendix) is authoritative before it\'s used for budget decisions.\n\n' },
+  { objectId: 'g3f59aaca611_0_5', text: 'Confirm which of the two conflicting conversion totals (817 vs 1,141 — see appendix) is authoritative, and which funnel action (Register, Add To Cart, or Proceed Checkout) should be the primary KPI going forward.\n\n' },
 
   // Slide 6 — Reach
   { objectId: 'p3_i16', text: 'B2C Audience Reach  ·  July 2026  ·  LinkedIn \n' },

@@ -115,15 +115,19 @@ const EDITS = [
   // Slide 4 — North Star narrative (chart itself is replaced separately below)
   { objectId: 'g3f483bfcec4_0_106', text: `July delivered ${TOTAL_LEADS} VCF leads at a blended £${BLENDED_CPL} CPL — Africa’s £47.26 CPL is pulling the blend down against APAC’s £177.75. eZine remained fully paused all month; reactivating even one cluster would add incremental reach without touching the VCF budget.\n\n` },
 
-  // Slide 5 — What We Recommend Next
+  // Slide 5 — What We Recommend Next. LEFT column ("WHAT WE'RE DOING") is
+  // 120/123/126/129/140 (five slots, all x≈118); RIGHT column ("WHAT WE
+  // NEED FROM YOU") is 134/137/143/146/g3f59aaca611_0_5 (x≈829) — confirmed
+  // via inspect11.mjs after 140 was originally (and wrongly) treated as a
+  // right-column slot, which put a "need"-phrased ask inside the doing box.
   { objectId: 'g3f483bfcec4_0_120', text: 'Running VCF Africa Lead Generation at current budget — £47.26 CPL is the most efficient result in the account this month.\n\n' },
   { objectId: 'g3f483bfcec4_0_123', text: 'Running VCF APAC Lead Generation alongside Africa — monitoring whether CPL narrows as the audience matures.\n\n' },
   { objectId: 'g3f483bfcec4_0_126', text: 'Maintaining the BOOST_VCF_APAC_JULY_2026_INHOUSE organic post — 141,897 impressions at £7.05 CPM, outside the lead-gen budget.\n\n' },
   { objectId: 'g3f483bfcec4_0_129', text: 'Holding eZine’s three static campaigns paused pending a reactivation decision.\n\n' },
+  { objectId: 'g3f483bfcec4_0_140', text: 'Monitoring the Africa vs APAC CPL gap monthly to confirm whether it holds as spend scales.\n\n' },
   { objectId: 'g3f483bfcec4_0_134', text: 'Confirm whether "ACCA Learning Always On" sits under a different account or exact name — no matching campaign was found this month.\n\n' },
   { objectId: 'g3f483bfcec4_0_137', text: 'Decide whether to reactivate an eZine cluster as a test, or reallocate that budget toward Africa Lead Generation.\n\n' },
-  { objectId: 'g3f483bfcec4_0_140', text: 'Share July’s VCF lead list so we can confirm lead quality against the APAC vs Africa CPL gap.\n\n' },
-  { objectId: 'g3f483bfcec4_0_143', text: 'Confirm whether the APAC/Africa CPL gap reflects audience saturation or a creative/targeting difference worth testing.\n' },
+  { objectId: 'g3f483bfcec4_0_143', text: 'Confirm whether the APAC/Africa CPL gap reflects audience saturation or a creative/targeting difference worth testing — share July’s VCF lead list so we can check lead quality against it.\n' },
   { objectId: 'g3f483bfcec4_0_146', text: 'Provide any planned July/August budget shift between VCF and eZine so next month’s targets can be set accordingly.\n\n' },
   { objectId: 'g3f59aaca611_0_5', text: 'Confirm the "ACCA Learning Always On" account/name before it can be reported on in future briefs.\n\n' },
 
