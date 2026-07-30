@@ -104,7 +104,7 @@ const EDITS = [
   { objectId: 'cov_headline', text: 'July 2026\nPerformance Brief' },
   { objectId: 'cov_subtitle', text: 'B2C · LinkedIn Account 509501623 · July 2026' },
   { objectId: 'cov_cardlabel', text: 'JULY SNAPSHOT' },
-  { objectId: 'cov_cardbody', text: `Six B2C campaigns drove ${TOTAL_REG.toLocaleString()} Register actions from ${fmtMoney(TOTAL_SPEND)} spend (£${BLENDED_CPA} blended CPA) across Cert-OT engagement, Cybersecurity, and Data Analytics cold-layer campaigns. Two requested Cert-AI campaigns weren’t found on this account.` },
+  { objectId: 'cov_cardbody', text: `Six B2C campaigns drove ${TOTAL_REG.toLocaleString()} Registers from ${fmtMoney(TOTAL_SPEND)} spend (£${BLENDED_CPA} blended CPA) across Cert-OT, Cybersecurity, and Data Analytics. Two requested Cert-AI campaigns weren’t found on this account.` },
   { objectId: 'cov_footer', text: 'PREPARED BY FILL MY FUNNEL  ·  JULY 2026' },
 
   // Slide 2 — Exec Summary
@@ -187,7 +187,7 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 6, text: '£16.97' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 4, columnIndex: 7, text: '£0.59' },
 
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 0, text: 'Cybersecurity' },
+  { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 0, text: 'Cyber' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 1, text: 'Cold Layer (Single Image)' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 2, text: '£217.04' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 3, text: '20,322' },
@@ -196,7 +196,7 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 6, text: '£10.68' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 5, columnIndex: 7, text: '£1.56' },
 
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 0, text: 'Cybersecurity' },
+  { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 0, text: 'Cyber' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 1, text: 'Cold Layer (Video)' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 2, text: '£193.65' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 3, text: '31,432' },
@@ -206,7 +206,7 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 6, columnIndex: 7, text: '£1.54' },
 
   { objectId: 'g3f59aaca611_0_73', rowIndex: 7, columnIndex: 0, text: 'Data Analytics (Cold Layer)' },
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 0, text: 'Data Analytics' },
+  { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 0, text: 'DataAn' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 1, text: 'Cold Layer (Video)' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 2, text: '£220.60' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 3, text: '30,948' },
@@ -215,7 +215,7 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 6, text: '£7.13' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 8, columnIndex: 7, text: '£1.85' },
 
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 0, text: 'Data Analytics' },
+  { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 0, text: 'DataAn' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 1, text: 'Cold Layer (Single Image)' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 2, text: '£211.16' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 3, text: '28,379' },
@@ -224,8 +224,13 @@ const TABLE_EDITS = [
   { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 6, text: '£7.44' },
   { objectId: 'g3f59aaca611_0_73', rowIndex: 9, columnIndex: 7, text: '£1.06' },
 
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 0, text: '' },
-  { objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: 1, text: '' },
+  // Row 10 (unused 4th slot in this group) and row 12 (Cert-AI slot, no
+  // real data) must have EVERY column cleared, not just 0-1 — the master's
+  // original row data (e.g. "ProDipSust Sustainability Strategy" £348/
+  // 61,477/411/...) otherwise survives untouched in columns 2-7 and leaks
+  // into the deck. Caught via a post-generation PDF render, not assumed.
+  ...[0, 1, 2, 3, 4, 5, 6, 7].map((c) => ({ objectId: 'g3f59aaca611_0_73', rowIndex: 10, columnIndex: c, text: '' })),
+  ...[0, 1, 2, 3, 4, 5, 6, 7].map((c) => ({ objectId: 'g3f59aaca611_0_73', rowIndex: 12, columnIndex: c, text: '' })),
 
   { objectId: 'g3f59aaca611_0_73', rowIndex: 11, columnIndex: 0, text: 'Cert-AI (Phase 3) — not found in account' },
 
