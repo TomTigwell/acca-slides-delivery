@@ -37,10 +37,13 @@ const requests = [
   ...cell(TABLE, 8, 0, 'DataAn'),
   ...cell(TABLE, 9, 0, 'DataAn'),
 
-  // Row 10: unused 4th slot in this group — clear every column, not just 0-1.
-  ...[0, 1, 2, 3, 4, 5, 6, 7].flatMap((c) => cell(TABLE, 10, c, '')),
-  // Row 12: the Cert-AI slot has no real data — clear every column so
-  // nothing from the master's original Hot-layer row survives.
+  // Row 10: unused 4th slot in this group. Columns 0-1 were already cleared
+  // by the original run (deleteText on an already-empty cell errors with
+  // "startIndex 0 must be less than endIndex 0"), so only 2-7 need it now.
+  ...[2, 3, 4, 5, 6, 7].flatMap((c) => cell(TABLE, 10, c, '')),
+  // Row 12: the Cert-AI slot has no real data and was never touched —
+  // clear every column so nothing from the master's original Hot-layer
+  // row survives.
   ...[0, 1, 2, 3, 4, 5, 6, 7].flatMap((c) => cell(TABLE, 12, c, '')),
 ];
 
