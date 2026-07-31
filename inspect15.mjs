@@ -20,22 +20,30 @@ function dumpCellText(cell) {
 
 const { data } = await slides.presentations.get({ presentationId: B2B_DECK });
 
+function dumpEl(el, depth) {
+  const pad = '  '.repeat(depth + 1);
+  if (el.table) {
+    console.log(`${pad}TABLE ${el.objectId} rows=${el.table.rows} cols=${el.table.columns}`);
+    el.table.tableRows.forEach((row, ri) => {
+      const cells = row.tableCells.map(c => dumpCellText(c).replace(/\n/g, '\\n')).join(' | ');
+      console.log(`${pad}  [${ri}] ${cells}`);
+    });
+  } else if (el.shape) {
+    const text = dumpText(el.shape).slice(0, 80).replace(/\n/g, ' ');
+    console.log(`${pad}${el.objectId} | SHAPE:${el.shape.shapeType} | "${text}"`);
+  } else if (el.image) {
+    console.log(`${pad}${el.objectId} | IMAGE`);
+  } else if (el.elementGroup) {
+    console.log(`${pad}${el.objectId} | GROUP (${el.elementGroup.children?.length || 0} children)`);
+    for (const child of el.elementGroup.children || []) dumpEl(child, depth + 1);
+  } else {
+    console.log(`${pad}${el.objectId} | OTHER keys=${Object.keys(el).join(',')}`);
+  }
+}
+
 for (const slideId of TARGET_SLIDES) {
   const slide = data.slides.find(s => s.objectId === slideId);
   console.log('\n===== slide', slideId, '=====');
   if (!slide) { console.log('NOT FOUND'); continue; }
-  for (const el of slide.pageElements || []) {
-    if (el.table) {
-      console.log(`  TABLE ${el.objectId} rows=${el.table.rows} cols=${el.table.columns}`);
-      el.table.tableRows.forEach((row, ri) => {
-        const cells = row.tableCells.map(c => dumpCellText(c).replace(/\n/g, '\\n')).join(' | ');
-        console.log(`    [${ri}] ${cells}`);
-      });
-    } else if (el.shape) {
-      const text = dumpText(el.shape).slice(0, 80).replace(/\n/g, ' ');
-      console.log(`  ${el.objectId} | SHAPE:${el.shape.shapeType} | "${text}"`);
-    } else if (el.image) {
-      console.log(`  ${el.objectId} | IMAGE`);
-    }
-  }
+  for (const el of slide.pageElements || []) dumpEl(el, 0);
 }
