@@ -31,30 +31,38 @@ function cellReq(tableObjectId, rowIndex, columnIndex, text) {
   ];
 }
 
+// Brand-new cells from insertTableRows report zero-length text (not even the
+// usual implicit trailing newline), so deleteText{type:'ALL'} on them 400s
+// with "startIndex 0 must be less than endIndex 0" (same class of bug as the
+// B2C appendix patch earlier this session) — insertText only, no delete.
+function newCellReq(tableObjectId, rowIndex, columnIndex, text) {
+  return [{ insertText: { objectId: tableObjectId, cellLocation: { rowIndex, columnIndex }, insertionIndex: 0, text } }];
+}
+
 const TABLE = 'p6_g11';
 
 const requests = [
   // Insert 3 fresh rows below row 9 (the existing "Q1 Total" row).
   { insertTableRows: { tableObjectId: TABLE, cellLocation: { rowIndex: 9, columnIndex: 0 }, insertBelow: true, number: 3 } },
 
-  ...cellReq(TABLE, 10, 0, 'July\n'),
-  ...cellReq(TABLE, 10, 1, 'APAC\n'),
-  ...cellReq(TABLE, 10, 2, '£659\n'),
-  ...cellReq(TABLE, 10, 3, '37,757\n'),
-  ...cellReq(TABLE, 10, 4, '8\n'),
-  ...cellReq(TABLE, 10, 5, '£82\n'),
+  ...newCellReq(TABLE, 10, 0, 'July\n'),
+  ...newCellReq(TABLE, 10, 1, 'APAC\n'),
+  ...newCellReq(TABLE, 10, 2, '£659\n'),
+  ...newCellReq(TABLE, 10, 3, '37,757\n'),
+  ...newCellReq(TABLE, 10, 4, '8\n'),
+  ...newCellReq(TABLE, 10, 5, '£82\n'),
 
-  ...cellReq(TABLE, 11, 1, 'EMEA\n'),
-  ...cellReq(TABLE, 11, 2, '£636\n'),
-  ...cellReq(TABLE, 11, 3, '29,262\n'),
-  ...cellReq(TABLE, 11, 4, '2\n'),
-  ...cellReq(TABLE, 11, 5, '£318\n'),
+  ...newCellReq(TABLE, 11, 1, 'EMEA\n'),
+  ...newCellReq(TABLE, 11, 2, '£636\n'),
+  ...newCellReq(TABLE, 11, 3, '29,262\n'),
+  ...newCellReq(TABLE, 11, 4, '2\n'),
+  ...newCellReq(TABLE, 11, 5, '£318\n'),
 
-  ...cellReq(TABLE, 12, 1, 'UK — paused\n'),
-  ...cellReq(TABLE, 12, 2, '—\n'),
-  ...cellReq(TABLE, 12, 3, '—\n'),
-  ...cellReq(TABLE, 12, 4, '0\n'),
-  ...cellReq(TABLE, 12, 5, '—\n'),
+  ...newCellReq(TABLE, 12, 1, 'UK — paused\n'),
+  ...newCellReq(TABLE, 12, 2, '—\n'),
+  ...newCellReq(TABLE, 12, 3, '—\n'),
+  ...newCellReq(TABLE, 12, 4, '0\n'),
+  ...newCellReq(TABLE, 12, 5, '—\n'),
 
   { deleteText: { objectId: 'p4_i22', textRange: { type: 'ALL' } } },
   { insertText: { objectId: 'p4_i22', insertionIndex: 0, text: 'Q1 closed at 21 leads vs a target of 30 — 70% of goal, but CPL improved 24% quarter-on-quarter (£291 → £221). July, the first month of Q2, delivered 10 leads at £130 CPL — 22% of the 45-lead Q2 target — as the persona-led creative and form architecture began rolling out.\n' } },
