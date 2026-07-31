@@ -1,5 +1,5 @@
 name: Generate ACCA Slides
-on: { workflow_dispatch: {} }
+on: { workflow_dispatch: {}, push: { branches: ['claude/keyless-github-action-ht6e7p'] } } # TEMP: adding July rows to B2B Reach table; remove once confirmed
 permissions: { id-token: write, contents: read }
 jobs:
   generate:
@@ -13,4 +13,4 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm install
-      - run: node generate.mjs
+      - run: node inspect16.mjs
