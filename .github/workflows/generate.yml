@@ -13,4 +13,4 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '20' }
       - run: npm install
-      - run: node inspect21.mjs
+      - run: node patch-b2c-fixes2.mjs
